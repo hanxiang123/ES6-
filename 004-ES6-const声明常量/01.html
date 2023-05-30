@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. 常量
+        // const myname = "tina"
+        // myname = "tiechui"
+        
+        // tinawarn("dwdwadwadwadwadwadwadwadwadwadwadwadwadwa")
+
+        //2，不能重复定义
+        // const myname = "tiehcui"
+
+        //3. 块级
+        // {
+        //     const myname = "tina"
+        // }
+        // console.log(myname)
+
+        //4 声明不提升
+
+        const myname ="tina"
+
+        function test(){
+            // console.log(myname)
+            const myname = "tiechui"
+        }
+
+        test()
+
+        //5. 不与顶层对象挂钩
+
+        const myage = 100
+
+        console.log(window.myage)
+
+
+        
+    </script>
+</body>
+</html>
