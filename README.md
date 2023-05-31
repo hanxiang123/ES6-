@@ -1,4 +1,131 @@
-[toc]
+- [ES6-ES13](#es6-es13)
+  - [一. 走入ES6](#一-走入es6)
+    - [1.初识ES6](#1初识es6)
+    - [2.let声明变量与const声明常量](#2let声明变量与const声明常量)
+    - [3.解构赋值](#3解构赋值)
+      - [3-1 解构对象](#3-1-解构对象)
+      - [3-2 解构数组](#3-2-解构数组)
+    - [4. 模版字符串](#4-模版字符串)
+    - [5.字符串扩展](#5字符串扩展)
+      - [5-1 includes函数](#5-1-includes函数)
+      - [5-2 repeat函数](#5-2-repeat函数)
+    - [6.数值扩展](#6数值扩展)
+      - [6-1 二进制和八进制表示法](#6-1-二进制和八进制表示法)
+      - [6-2 isFinite与isNaN方法](#6-2-isfinite与isnan方法)
+      - [6-3 isInteger方法](#6-3-isinteger方法)
+      - [6-4 极小常量Number.EPSILON](#6-4-极小常量numberepsilon)
+      - [6-5 Math.trunc](#6-5-mathtrunc)
+      - [6-6 Math.sign](#6-6-mathsign)
+    - [7.数组扩展](#7数组扩展)
+      - [7-1 扩展运算符](#7-1-扩展运算符)
+      - [7-2 Array.from](#7-2-arrayfrom)
+      - [7-3 Array.of](#7-3-arrayof)
+      - [7-4. find方法](#7-4-find方法)
+      - [7-5. fill方法](#7-5-fill方法)
+      - [7-6 flat与flatMap方法](#7-6-flat与flatmap方法)
+    - [8.对象扩展](#8对象扩展)
+      - [8-1 对象简写](#8-1-对象简写)
+      - [8-2 属性名表达式](#8-2-属性名表达式)
+      - [8-3 Object.assign](#8-3-objectassign)
+      - [8-4 Object.is](#8-4-objectis)
+    - [9.函数扩展](#9函数扩展)
+      - [9-1 箭头函数](#9-1-箭头函数)
+      - [9-2 箭头函数的特殊性](#9-2-箭头函数的特殊性)
+      - [9-3 函数传递参数的时候的默认值](#9-3-函数传递参数的时候的默认值)
+    - [10.Symbol](#10symbol)
+    - [11.Iterator迭代器](#11iterator迭代器)
+    - [12.Set结构](#12set结构)
+      - [12-1 初识Set](#12-1-初识set)
+      - [12-2 实例的属性和方法](#12-2-实例的属性和方法)
+      - [12-3 遍历](#12-3-遍历)
+      - [12-4 复杂数据结构去重](#12-4-复杂数据结构去重)
+    - [13.Map结构](#13map结构)
+      - [13-1 初识Map](#13-1-初识map)
+      - [13-2 实例的属性和方法](#13-2-实例的属性和方法)
+      - [13-3 遍历](#13-3-遍历)
+    - [14.Proxy代理](#14proxy代理)
+      - [14-1.get方法](#14-1get方法)
+      - [14-2.set方法](#14-2set方法)
+      - [14-3.has方法](#14-3has方法)
+      - [14-4.this问题](#14-4this问题)
+    - [15.Reflect对象](#15reflect对象)
+      - [15-1 代替Object的某些方法](#15-1-代替object的某些方法)
+      - [15-2 修改某些Object方法返回结果](#15-2-修改某些object方法返回结果)
+      - [15-3 命令式变为函数行为](#15-3-命令式变为函数行为)
+      - [15-4 配合Proxy](#15-4-配合proxy)
+    - [16.Promise](#16promise)
+      - [16-1 回调地狱](#16-1-回调地狱)
+      - [16-2 Promise使用](#16-2-promise使用)
+      - [16-3 Promise 对象的状态](#16-3-promise-对象的状态)
+      - [16-4 Promise.all](#16-4-promiseall)
+      - [16-5 Promise.race](#16-5-promiserace)
+    - [17.Generator 函数](#17generator-函数)
+      - [17-1 基本语法](#17-1-基本语法)
+      - [17-2 异步流程](#17-2-异步流程)
+    - [18. Class语法](#18-class语法)
+      - [18-1 类的写法](#18-1-类的写法)
+      - [18-2 getter与setter](#18-2-getter与setter)
+      - [18-3 静态属性和静态方法](#18-3-静态属性和静态方法)
+      - [18-4 继承](#18-4-继承)
+    - [19.模块化](#19模块化)
+  - [二. ES7新特性](#二-es7新特性)
+    - [1. 求幂运算符](#1-求幂运算符)
+    - [2.数组的includes方法](#2数组的includes方法)
+  - [三. ES8新特性](#三-es8新特性)
+    - [1. async和await](#1-async和await)
+      - [1-1.Async](#1-1async)
+      - [1-2.Await](#1-2await)
+      - [1-3.错误处理](#1-3错误处理)
+    - [2.对象方法扩展](#2对象方法扩展)
+    - [3. 字符串填充](#3-字符串填充)
+    - [4. 函数参数的末尾加逗号](#4-函数参数的末尾加逗号)
+  - [四. ES9新特性](#四-es9新特性)
+    - [1. 对象的剩余参数与扩展运算符](#1-对象的剩余参数与扩展运算符)
+      - [1-1 对象的剩余参数](#1-1-对象的剩余参数)
+      - [1-2 对象的扩展运算符](#1-2-对象的扩展运算符)
+    - [2.正则表达式命名捕获组](#2正则表达式命名捕获组)
+    - [3. Promise.finally()](#3-promisefinally)
+    - [4. 异步遍历器](#4-异步遍历器)
+      - [4-1 同步遍历器的问题](#4-1-同步遍历器的问题)
+      - [](#)
+      - [4-2 异步遍历器生成函数](#4-2-异步遍历器生成函数)
+      - [4-3 for await of](#4-3-for-await-of)
+      - [4-4 案例改造](#4-4-案例改造)
+      - [4-5 nodejs用法](#4-5-nodejs用法)
+  - [五.ES10新特性](#五es10新特性)
+    - [1. Object.fromEntries](#1-objectfromentries)
+    - [2. trimStart() and trimEnd()](#2-trimstart-and-trimend)
+    - [3. Symbol 对象的 description 属性](#3-symbol-对象的-description-属性)
+    - [4. 可选的 catch](#4-可选的-catch)
+  - [六. ES11新特性](#六-es11新特性)
+    - [1. Promise.allSettled](#1-promiseallsettled)
+    - [2.module新增](#2module新增)
+      - [2-1 动态导入 import()](#2-1-动态导入-import)
+      - [2-2 import.meta](#2-2-importmeta)
+      - [2-3 export \* as obj from 'module'](#2-3-export--as-obj-from-module)
+    - [3.字符串的matchAll方法](#3字符串的matchall方法)
+    - [4. BigInt](#4-bigint)
+    - [5. globalThis](#5-globalthis)
+    - [6.空值合并运算符](#6空值合并运算符)
+    - [7.可选链操作符](#7可选链操作符)
+  - [七. ES12新特性](#七-es12新特性)
+    - [1. 逻辑赋值操作符](#1-逻辑赋值操作符)
+    - [2.数字分隔符](#2数字分隔符)
+    - [3. replaceAll](#3-replaceall)
+    - [4.Promise.any](#4promiseany)
+    - [5. WeakRef](#5-weakref)
+    - [6. FinalizationRegistry](#6-finalizationregistry)
+  - [八.ES13新特性](#八es13新特性)
+    - [1. 私有属性和方法](#1-私有属性和方法)
+    - [2.静态成员的私有属性和方法](#2静态成员的私有属性和方法)
+    - [3.静态代码块](#3静态代码块)
+    - [4. 使用in来判断某个对象是否拥有某个私有属性](#4-使用in来判断某个对象是否拥有某个私有属性)
+    - [5.支持在最外层写await](#5支持在最外层写await)
+    - [6. at函数来索引元素](#6-at函数来索引元素)
+    - [7. 正则匹配的开始和结束索引](#7-正则匹配的开始和结束索引)
+    - [8.findLast()和findLastIndex()函数](#8findlast和findlastindex函数)
+    - [9.Error对象的Cause属性](#9error对象的cause属性)
+
 ### ES6-ES13
 
 #### 一. 走入ES6
@@ -139,7 +266,7 @@
   ```javascript
   // ES5 的方法向得到对象中的成员
   const obj = {
-    name: 'tina',
+    name: 'kerwin',
     age: 100,
     gender: '男'
   }
@@ -152,7 +279,7 @@
   ```javascript
   // 解构赋值的方式从对象中获取成员
   const obj = {
-    name: 'tina',
+    name: 'kerwin',
     age: 100,
     gender: '男'
   }
@@ -171,7 +298,7 @@
 
   ```javascript
   // ES5 的方式从数组中获取成员
-  const arr = ['tina', 'tiechui', 'gangdan']
+  const arr = ['kerwin', 'tiechui', 'gangdan']
   let a = arr[0]
   let b = arr[1]
   let c = arr[2]
@@ -179,7 +306,7 @@
 
   ```javascript
   // 使用解构赋值的方式从数组中获取成员
-  const arr = ['tina', 'tiechui', 'gangdan']
+  const arr = ['kerwin', 'tiechui', 'gangdan']
   
   // 前面的 [] 表示要从 arr 这个数组中获取成员了
   // a b c 分别对应这数组中的索引 0 1 2
@@ -251,7 +378,7 @@
 判断字符串中是否存在指定字符
 
 ```js
-let myname = "tina"
+let myname = "kerwin"
 
 console.log(myname.includes("e")) //true
 console.log(myname.startsWith("k")) //true
@@ -263,14 +390,14 @@ console.log(myname.endsWith("n")) //true
 repeat()方法返回一个新字符串,表示将原字符串重复n次。
 
 ````js
-let myname = "tina"
+let myname = "kerwin"
 
-console.log(myname.repeat(3)) //tinatinatina
+console.log(myname.repeat(3)) //kerwinkerwinkerwin
 
 console.log(myname.repeat(0)) //"" 
-console.log(myname.repeat(3.5)) //tinatinatina
+console.log(myname.repeat(3.5)) //kerwinkerwinkerwin
 
-console.log(myname.repeat("3"))//tinatinatina
+console.log(myname.repeat("3"))//kerwinkerwinkerwin
 ````
 
 ##### 6.数值扩展
@@ -298,7 +425,7 @@ let num4 = Number.isFinite("100") //false
 ```js
 let num1 = Number.isNaN(100) // false
 let num2 = Number.isNaN(NaN) //true
-let num3 = Number.isNaN("tina") //false
+let num3 = Number.isNaN("kerwin") //false
 let num4 = Number.isNaN("100") // false
 ```
 
@@ -313,7 +440,7 @@ let num4 = Number.isNaN("100") // false
 ```js
 let num1 = Number.isInteger(100) // true
 let num2 = Number.isInteger(100.0) //true
-let num3 = Number.isInteger("tina") //false
+let num3 = Number.isInteger("kerwin") //false
 let num4 = Number.isInteger("100") // false
 ```
 
@@ -352,7 +479,7 @@ Math.sign(-100) // -1
 Math.sign(100) // +1
 Math.sign(0) // +0
 Math.sign(-0) // -0
-Math.sign("tina") // NaN
+Math.sign("kerwin") // NaN
 ```
 
 ##### 7.数组扩展
@@ -418,10 +545,10 @@ console.log(res2) //3
 使用自己想要的参数替换原数组内容,但是会改变原来的数组
 
 ```js
-let arr1 = new Array(3).fill("tina")
-let arr2 = ['a', 'b', 'c'].fill("tina", 1, 2)
-console.log(arr1)//['tina', 'tina', 'tina']
-console.log(arr2)// ['a', 'tina', 'c']
+let arr1 = new Array(3).fill("kerwin")
+let arr2 = ['a', 'b', 'c'].fill("kerwin", 1, 2)
+console.log(arr1)//['kerwin', 'kerwin', 'kerwin']
+console.log(arr2)// ['a', 'kerwin', 'c']
 ```
 
 ###### 7-6 flat与flatMap方法
@@ -487,7 +614,7 @@ object2：参数2
 
 ```js
 const obj1 = {
-    name: "tina"
+    name: "kerwin"
 };
 
 const obj2 = {
@@ -684,7 +811,7 @@ console.log(Object.is(+0,-0)) //false
 let name = Symbol()
 let age = Symbol()
 var obj  ={
-    [name]:"tina",
+    [name]:"kerwin",
     [age]:100
 }
 ```
@@ -695,7 +822,7 @@ var obj  ={
 let name = Symbol("name")
 let age = Symbol("age")
 var obj  ={
-    [name]:"tina",
+    [name]:"kerwin",
     [age]:100
 }
 console.log(obj)
@@ -709,7 +836,7 @@ let keys = {
     age:Symbol("age")
 }
 var obj  ={
-    [keys.name]:"tina",
+    [keys.name]:"kerwin",
     [keys.age]:100,
     a:1,
     b:2,
@@ -727,7 +854,7 @@ Reflect.ownKeys(obj).forEach(item=>{
 
 ```js
 var obj  ={
-    [Symbol.for("name")]:"tina",
+    [Symbol.for("name")]:"kerwin",
     [Symbol.for("age")]:100
 }
 
@@ -745,7 +872,7 @@ console.log(obj[Symbol.for("name")])
 > 三是 ES6 创造了一种新的遍历命令**for...of**循环，Iterator 接口主要供**for...of**循环
 
 ```js
-let arr = ["tina", "tiechui", "gangdaner"]
+let arr = ["kerwin", "tiechui", "gangdaner"]
 
 for(let i of arr){
     console.log(i)
@@ -789,7 +916,7 @@ console.log(i.next())
 
 ```js
 let obj = {
-    0: "tina",
+    0: "kerwin",
     1: "tiechui",
     2: "gangdaner",
     length: 3,
@@ -802,7 +929,7 @@ for (let i of obj) {
 
 
 let obj2 = {
-    data: ['tina', 'tiechui', "gangdaner"],
+    data: ['kerwin', 'tiechui', "gangdaner"],
     [Symbol.iterator]() {
         // let _this = this
         let index = 0;
@@ -882,9 +1009,9 @@ function uni(arr) {
 }
 
 var arr = [1, 2, 3, "data", {
-    name: "tina"
+    name: "kerwin"
 }, {
-    name: "tina"
+    name: "kerwin"
 },
            [1, 2],
            [3, 4],
@@ -901,13 +1028,13 @@ console.log(uni(arr))
 
 ```js
 let m1 = new Map()
-m1.set("name","tina")
+m1.set("name","kerwin")
 m1.set({a:1},"大连")
 
 console.log(m1)
 
 let m2= new Map([
-    ["name","tina"],
+    ["name","kerwin"],
     [{a:1},"大连"]
 ])
 console.log(m2)
@@ -1024,7 +1151,7 @@ proxy.add(1)
 const obj = {
 };
 Reflect.defineProperty(obj, 'name', {
-    value: 'tina',
+    value: 'kerwin',
     writable: false,
     configurable:false
 });
@@ -1056,7 +1183,7 @@ if (Reflect.defineProperty(target, property, attributes)) {
 
 ```js
 const obj = {
-    name:"tina"
+    name:"kerwin"
 };
 //老写法
 console.log("name" in obj) //true
@@ -1366,7 +1493,7 @@ class Person {
         console.log(this.name,this.age)
     }
 }
-let obj = new Person("tina",100)
+let obj = new Person("kerwin",100)
 console.log(obj)
 ```
 
@@ -1407,7 +1534,7 @@ class Person {
         console.log("eat")
     }
 }
-let obj = new Person("tina",100)
+let obj = new Person("kerwin",100)
 
 console.log(Person.name)
 Person.eat()
@@ -1447,7 +1574,7 @@ class Student extends Person{
         console.log("student eat")
     }
 }
-let obj = new Student("tina",100,200)
+let obj = new Student("kerwin",100,200)
 console.log(obj)
 obj.say()
 Student.eat()
@@ -1586,7 +1713,7 @@ try{
 
 ```js
 let obj = {
-    name:"tina",
+    name:"kerwin",
     age:100
 }
 console.log(Object.values(obj))
@@ -1597,7 +1724,7 @@ console.log(Object.values(obj))
 
 ```js
 let obj = {
-    name:"tina",
+    name:"kerwin",
     age:100
 }
 console.log(Object.entries(obj))
@@ -1611,7 +1738,7 @@ console.log(Object.entries(obj))
 
 ```js
 let obj = {
-    name:"tina",
+    name:"kerwin",
     age:100
 }
 console.log(Object.getOwnPropertyDescriptors(obj))
@@ -1625,7 +1752,7 @@ console.log(Object.getOwnPropertyDescriptors(obj))
 
 ```js
 let obj1 = {
-    name:"tina",
+    name:"kerwin",
     age:100,
     location:{
         provice:"辽宁",
@@ -1659,12 +1786,12 @@ Object.defineProperties(obj2,Object.getOwnPropertyDescriptors(obj1))
 
 
 ```js
-let str= "tina"
+let str= "kerwin"
 
-console.log(str.padStart(10,"x"));//xxxxtina
-console.log(str.padEnd(10,"x"));//tinaxxxx
-console.log(str.padStart(5,"x"))//tina
-console.log(str.padEnd(5,"x"))//tina
+console.log(str.padStart(10,"x"));//xxxxkerwin
+console.log(str.padEnd(10,"x"));//kerwinxxxx
+console.log(str.padStart(5,"x"))//kerwin
+console.log(str.padEnd(5,"x"))//kerwin
 ```
 
 
@@ -1698,13 +1825,13 @@ test(
 
 ```js
 let obj = {
-    name:"tina",
+    name:"kerwin",
     age:100,
     location:"dalian"
 }
 
 let {name,...other} = obj
-console.log(name) //tina
+console.log(name) //kerwin
 console.log(other) //{age: 100, location: 'dalian'}
 ```
 
@@ -1712,7 +1839,7 @@ console.log(other) //{age: 100, location: 'dalian'}
 
 ```js
 let obj1 = {
-    name:"tina"
+    name:"kerwin"
 }
 
 let obj2 = {
@@ -1927,8 +2054,8 @@ async function main(inputFilePath) {
 > Object.fromEntries()方法允许你轻松地将键值对列表转换为对象
 
 ```js
-const arr = [["name", "tina"], ["age", 100]];
-console.log(Object.fromEntries(arr))//{name: 'tina', age: 100}
+const arr = [["name", "kerwin"], ["age", 100]];
+console.log(Object.fromEntries(arr))//{name: 'kerwin', age: 100}
 
 const m = new Map()
 m.set("name","tiechui")
@@ -1939,10 +2066,10 @@ console.log(Object.fromEntries(m))
 **用处**
 
 ```js
-let str ="name=tina&age=100"
+let str ="name=kerwin&age=100"
 
 let searchParams = new URLSearchParams(str)
-console.log(Object.fromEntries(searchParams))//{name: 'tina', age: '100'}
+console.log(Object.fromEntries(searchParams))//{name: 'kerwin', age: '100'}
 ```
 
 ##### 2. trimStart() and trimEnd()
@@ -1950,7 +2077,7 @@ console.log(Object.fromEntries(searchParams))//{name: 'tina', age: '100'}
 > trimStart()和trimEnd()方法在实现与trimLeft()和trimRight()相同。
 
 ```js
-let str = "   tina    "
+let str = "   kerwin    "
 console.log("|"+str.trimStart(str)+"|")
 console.log("|"+str.trimEnd(str)+"|")
 console.log("|"+str.trimLeft(str)+"|")
@@ -1964,8 +2091,8 @@ console.log("|"+str.trimRight(str)+"|")
 > 为Symbol对象添加了只读属性 description ，该对象返回包含Symbol描述的字符串。
 
 ```js
-let s = Symbol("tina")
-console.log(s.description) //tina
+let s = Symbol("kerwin")
+console.log(s.description) //kerwin
 ```
 
 ##### 4. 可选的 catch
@@ -2270,7 +2397,7 @@ if (globalThis.document) {
 
 ```js
 let obj = {
-    name:"tina",
+    name:"kerwin",
     introduction:0
 }
 
@@ -2292,7 +2419,7 @@ console.log(obj.introduction ?? "这个人很懒")
 
 ```js
 let obj = {
-    name:"tina",
+    name:"kerwin",
     introduction:0,
     // location:{
     //     city:"dalian"
@@ -2320,7 +2447,7 @@ console.log(a)
 
 
 let obj = {
-    name:"tina",           
+    name:"kerwin",           
 }
 
 obj.introduction = obj.introduction??"很懒"
@@ -2359,7 +2486,7 @@ const hex = 0xA1_B2_C3;
 ```js
 const str =
       "I wish to wish the wish you wish to wish, but if you wish the wish the witch wishes, I won't wish the wish you wish to wish. ";
-const newStr = str.replaceAll("wish", "tina");
+const newStr = str.replaceAll("wish", "kerwin");
 console.log(newStr);
 ```
 
@@ -2489,7 +2616,7 @@ set(key,value){
 }
 
 let cache = new Cache()
-cache.set("name","tina")
+cache.set("name","kerwin")
 ```
 
 ##### 2.静态成员的私有属性和方法
@@ -2515,7 +2642,7 @@ cache.set("name","tina")
 }
 
 let cache = new Cache()
-cache.set("name","tina")
+cache.set("name","kerwin")
 
 console.log(Cache.getCount())
 ```
@@ -2534,7 +2661,7 @@ console.log(Cache.getCount())
  class Cache{
     static obj = new Map()
     static {
-        this.obj.set("name","tina")
+        this.obj.set("name","kerwin")
         this.obj.set("age",100)
     }
 
@@ -2598,7 +2725,7 @@ console.log(res)
 ##### 6. at函数来索引元素
 
 ```js
-let arr = ["tina","tiechui","gangdan","xiaoming"]
+let arr = ["kerwin","tiechui","gangdan","xiaoming"]
 
 console.log(arr[1])
 console.log(arr[arr.length-1]) //变丑了
@@ -2653,7 +2780,7 @@ console.log(res)
 ```js
 function getData(){
     try{
-        console.log(tina)
+        console.log(kerwin)
     }
     catch(e){
         throw new Error('New error 1111111',{cause:"这是因为,,,,,,,,,"});
