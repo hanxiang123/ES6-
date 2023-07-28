@@ -20,8 +20,9 @@
             yield ajax(222)
         }
 
-        let g = gen() //g就是一个异步遍历器
-        
+        // let g = gen() //g就是一个异步遍历器
+        // console.log(g)
+        // console.log(g.next())
         // g.next().then(res=>{
         //     console.log(res)
         //     return g.next()
@@ -32,11 +33,23 @@
         //     console.log(res)
         // })
 
-        async function test(){
-           let list = [g.next(),g.next(),g.next()]
+        // async function test(){
+        //    let list = [g.next(),g.next(),g.next()]
+        //     console.log(list)
+        //    for (let i of list){
+        //        console.log(await i)
+        //    }
+        // }
 
-           for await(let i of list){
+        // caught (in promise) TypeError: g is not iterable
+        async function test(){
+            let g = gen() //g就是一个异步遍历器
+            console.log(g)
+            // console.log(g.next())
+           for await (let i of g){
+                console.log('start')
                console.log(i)
+               console.log('end')
            }
         }
 

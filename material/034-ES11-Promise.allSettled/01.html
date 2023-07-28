@@ -31,12 +31,14 @@
 
         //showloading
 
-        Promise.allSettled([ajax("1.json"),ajax("2.json"),ajax("33.json")]).then(res=>{
+        Promise.allSettled([ajax("1.json"),ajax("2.json"),ajax("3.json")]).then(res=>{
             //hideloading
-            console.log(res.filter(item=>item.status==="fulfilled"))
+            console.log('111', res.filter(item=>item.status==="fulfilled"))
 
             let res1 = res.filter(item=>item.status==="fulfilled")
-            console.log(res1.flatMap(item=>item.value.data))
+            console.log('success', res1.flatMap(item=>item.value.data))
+        }).catch(err => {
+            console.log(err, 'err')
         })
     </script>
 </body>

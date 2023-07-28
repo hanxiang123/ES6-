@@ -19,19 +19,18 @@
           name:"tina"
       }
 
-    //   let obj1 = obj
+      // let obj1 = obj
+      // obj = null   
 
-    //   obj = null     
-    //   let s1= new Set()
-    //   s1.add(obj)
+      let s1= new Set()
+      s1.add(obj)
+      s1.add("aaaaa")
 
-    //   s1.add("aaaaa")
-
-    //   obj = null
-
-    //   for(let i of s1){
-    //       console.log(i)
-    //   }
+      obj = null
+      console.log(obj, s1)
+      for(let i of s1){
+          console.log(i)
+      }
 
       /*
         weakset:
@@ -40,12 +39,12 @@
         2. 不存在引用计数+1
         3. size ,for不能用了
       */
-      let s1= new WeakSet()
-      s1.add(obj)
+      // let s1= new WeakSet()
+      // s1.add(obj)
 
     //   s1.add("aaaaa")
 
-      obj = null
+      // obj = null
 
     //   for(let i of s1){
     //       console.log(i)

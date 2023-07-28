@@ -18,19 +18,24 @@
             })
         }
 
-        async function *gen(){
+        // 第一种写法也可以，为什么?
+        function *gen(){
             yield timer(1000)
             yield timer(2000)
             yield timer(3000)
         }
+        // async function *gen(){
+        //     yield timer(1000)
+        //     yield timer(2000)
+        //     yield timer(3000)
+        // }
 
         async function test(){
             let g = gen()
-            let arr = [g.next(),g.next(),g.next()]
-
-            for await(let item of arr){
+            console.log(g)
+            for await(let item of g){
                 console.log("start-",Date.now())
-                console.log(item)
+                console.log(item) // 取出来的是值
                 console.log("end-",Date.now())
             }
         }

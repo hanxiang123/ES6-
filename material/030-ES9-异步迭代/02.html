@@ -35,6 +35,7 @@
         }
 
         let g = gen()
+        console.log(g)
         // console.log(g.next())
         // console.log(g.next())
         // console.log(g.next())
@@ -45,6 +46,10 @@
         g.next().value.then(res=>{
             console.log(res)
         })
+
+        // for (let i of g) {
+        //     console.log(i, 'll')
+        // }
     </script>
 </body>
 </html>
